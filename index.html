@@ -112,7 +112,19 @@
       <button onclick="deleteLast()" class="wide">⌫</button>
     </div>
   </div>
+<audio id="bgMusic" src="solo.m4a" type="audio/mp4" preload="auto"></audio>
 
+  <script>
+    const audio = document.getElementById('bgMusic');
+
+    window.addEventListener('load', () => {
+      const playOnce = () => {
+        audio.play().catch(() => {}); // Try to play
+        document.removeEventListener('click', playOnce);
+      };
+      document.addEventListener('click', playOnce);
+    });
+      </script>
   <script>
     let display = document.getElementById('display');
     let justCalculated = false;
