@@ -83,7 +83,7 @@
 </head>
 <body>
   
-  <div class="calculator">
+  <div class="calculator" id="calcu">
     <h1>Powered by Solomon 😂🌹💓💗💝💗💗</h1>
     <input type="text" id="display" style="background: #fff" disabled />
     
@@ -113,18 +113,13 @@
     </div>
   </div>
 <audio id="bgMusic" src="solo.m4a" type="audio/mp4" preload="auto"></audio>
-
   <script>
-    const audio = document.getElementById('bgMusic');
-
-    window.addEventListener('load', () => {
-      const playOnce = () => {
-        audio.play().catch(() => {}); // Try to play
-        document.removeEventListener('click', playOnce);
-      };
-      document.addEventListener('click', playOnce);
-    });
-      </script>
+  function calcu {
+    document.getElementById('bgMusic').play();
+    }
+  
+  </script>
+    
   <script>
     let display = document.getElementById('display');
     let justCalculated = false;
