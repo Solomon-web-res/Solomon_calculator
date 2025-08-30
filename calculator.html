@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Responsive Calculator made by solomon</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: url(1756300474881.jpg) no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .calculator {
+      background: url(1756300474887.jpg) no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 320px;
+    }
+
+    #display {
+      width: 100%;
+      height: 50px;
+      font-size: 24px;
+      text-align: right;
+      margin-bottom: 15px;
+      padding: 5px 10px;
+      box-sizing: border-box;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    button {
+      width: 22%;
+      height: 50px;
+      margin: 1%;
+      font-size: 28px;
+      border: none;
+      border-radius: 5px;
+      background: #eee;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    button:hover {
+      background: #ddd;
+    }
+
+    button.wide {
+      width: 47%;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" id="display" style="background: #fff" disabled />
+    
+    <div class="button-row">
+      <button onclick="press('7')">7</button>
+      <button onclick="press('8')">8</button>
+      <button onclick="press('9')">9</button>
+      <button onclick="press('/')">/</button>
+
+      <button onclick="press('4')">4</button>
+      <button onclick="press('5')">5</button>
+      <button onclick="press('6')">6</button>
+      <button onclick="press('*')">*</button>
+
+      <button onclick="press('1')">1</button>
+      <button onclick="press('2')">2</button>
+      <button onclick="press('3')">3</button>
+      <button onclick="press('-')">-</button>
+
+      <button onclick="press('0')">0</button>
+      <button onclick="press('.')">.</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="press('+')">+</button>
+
+      <button onclick="clearDisplay()" class="wide">C</button>
+      <button onclick="deleteLast()" class="wide">⌫</button>
+    </div>
+  </div>
+
+  <script>
+    let display = document.getElementById('display');
+    let justCalculated = false;
+
+    function press(value) {
+      if (justCalculated) {
+        display.value = '';
+        justCalculated = false;
+      }
+      display.value += value;
+    }
+
+    function calculate() {
+      try {
+        display.value = eval(display.value);
+        justCalculated = true;
+      } catch {
+        display.value = "Error";
+        justCalculated = true;
+      }
+    }
+
+    function clearDisplay() {
+      display.value = "";
+      justCalculated = false;
+    }
+
+    function deleteLast() {
+      if (!justCalculated) {
+        display.value = display.value.slice(0, -1);
+      }
+    }
+  </script>
+</body>
+</html>
