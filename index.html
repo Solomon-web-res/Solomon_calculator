@@ -3,8 +3,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Responsive Calculator made by solomon</title>
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
     body {
       font-family: Arial, sans-serif;
       display: flex;
@@ -62,6 +68,11 @@
 
     button.wide {
       width: 47%;
+    }
+    @media (max-width: 400px) {
+      button { 
+        font-size: 1em;
+    }
     }
   </style>
 </head>
